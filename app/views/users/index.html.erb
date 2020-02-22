@@ -1,0 +1,15 @@
+ <%@users.each do |user|%>
+
+
+<h1><%= link_to user.name, user_path(user)%></h1> | <%=link_to "edit", edit_user_path(user)%> | 
+<%= link_to 'Delete', user, method: :delete, data: {confirm: "are you sure man??"}%> | 
+<%=link_to "user posts", post_path(user.id)%> | <%=link_to "new post", new_post_path%>
+
+
+
+<%end%><br>
+
+<%= link_to "Add new User", new_user_path%> 
+
+
+<%= link_to "all posts", posts_path%> 

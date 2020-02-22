@@ -1,0 +1,12 @@
+<%=@user.name%>
+<br>
+
+<% @user.posts.each do |p|%>
+
+<strong><%= link_to p.title, single_post_path(p.id)%><br></strong>
+
+
+
+<% end%><br>
+
+
