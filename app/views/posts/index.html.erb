@@ -1,7 +1,15 @@
+<% if params[:sort] %>
+    <%= link_to "Default sort order", posts_path %>
+<% else %>
+    <%= link_to "Alphabetic order", posts_path(sort: true) %>
+<% end %>
+
 <h1>Showing all Posts</h1>
 <% @posts.each do |post|%>
     <p>
         Title: <%= link_to post.title, post_path(post)%><br>
         author: <%= link_to post.user.name, user_path(post.user)%>
+        tags: <%=post.show_tags%><br>
+        likes: <%=post.likes ||= 0%>
     </p>
 <%end%>
