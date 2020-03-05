@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
     
     def index
-        @posts = params[:sort] ? Post.all.order("title ASC") : Post.all
+        @posts = params[:sort] ? Post.all.order("likes DESC") : Post.all
     end
     
     def new #display form for create a new record
