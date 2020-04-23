@@ -1,0 +1,102 @@
+React components have two sets of properties: props and state. 
+    Props are given to the component by its parent. 
+        an external influence that the component has no control over, 
+    state is internal to the component. 
+        A component's state can change in conjunction to the props or when the user interacts 
+
+The React framework was designed to enable developers to create complex and highly reactive UIs. This enables the components to quickly adapt to changes from user interactions or updates in the app. In order to enable this, 
+
+React components go through what we call a component lifecycle.
+    to enable developers to create complex and highly reactive UIs
+    This is broadly divided into three parts: creation, updating, and deletion.
+
+Everything in React is a component
+    ex: if you open a new chat window in a website written in React, 
+        a ChatWindow component is created. 
+        As you are interacting with it and sending messages to your friends
+            that's the updating part. 
+        And when you finally close the window, the React component gets deleted.
+
+lifecycle hooks or lifecycle methods are responsible
+    for updating and render 
+    called lifecycle methods because they are called at different times in the component's lifecycle 
+    
+The only required method for a React component 
+    is the render() method. 
+
+    ==================
+pre-mounting
+    before the mounting
+        the class's constructor function is called.
+        first function called upon the initialization of a component; 
+        this makes it useful for creating an initial state for a component.
+
+
+==========================
+
+Mounting
+    At the mounting stage, there are two lifecycle hooks available to us: 
+    static getDerivedStateFromProps
+        will get called just before render
+        we can return state before a component is rendered.
+        called at the beggining and updating
+        is NOT COMMOM TO USE 
+            accordingly to the react documentaion
+            shouldn't put logic before render
+                render needs to be prioritised
+            could impact performance
+        may be useful to access to both props and state and to compare them before rendering
+            altough there are better ways
+    componentDidMount.
+        will get called just after the render method
+        useful to processes like fetching and updating data
+    After the constructor and static getDerivedStateFromProps, 
+        render is invoked,
+            returning JSX so that React can insert it into the DOM.
+Updating
+    Whenever a component's state or props are changed, 
+    it gets re-rendered on the page. 
+    can happen if new data comes in or if user changes something
+
+    going back to the chat window example, 
+        whenever you press "send" on a message, 
+        the ChatWindow component gets re-rendered
+    The static getDerivedStateFromProps() 
+        is invoked before anything else when updating a component,
+        is available for rare situations where you may need to calculate state changes prior update.
+    shouldComponentUpdate () 
+        invoked just before the component is about to re-render.
+        you can compare the old and new props and state 
+            prevent unnecessary re-renders
+            avoid performance drain.
+    After the first two hooks, 
+        render is called, returning the JSX for React.
+    Just before updating, getSnapshotBeforeUpdate is invoked. 
+        returns a 'snapshot' that can be used in the final update lifecycle method, 
+            componentDidUpdate(). 
+        This snapshot allows us to capture things like scroll position. 
+        This sort of value can possibly change in the small amount of time 
+            before componentDidUpdate is invoked.
+    The componentDidUpdate method 
+        called just after the component is rendered and updated. 
+        It is possible in componentDidUpdate to take some actions without triggering a re-render of the component, such as focusing on a specific form input.
+    You will have access to 
+        the previous props and state
+        the current one
+    you can use this method to 
+        update any third party libraries if they happen to need an update
+            due to the re-render.
+unmmounting
+    the component gets deleted and cleared out of the page. 
+    The only lifecycle hook at this stage is componentWillUnmount, 
+        is called just before the component gets deleted. 
+        This is used to clear out any stuff set up in componentDidMount.
+    For example, 
+        if you had a component that displays the weather data in your home town,
+        you set it up to re-fetch every 10 seconds in componentDidMount. 
+        When the component gets deleted, 
+            you wouldn't want to continue doing this data-fetching, 
+            so you'd have to get rid of what was set up in componentWillUnmount.
+
+
+

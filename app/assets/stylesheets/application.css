@@ -20,3 +20,13 @@
     height: 700px;
     font-size: 25px;
  }
+
+ .search-form{
+   display: inline;
+   margin-left: 20px;
+ }
+
+ #post_tag_ids{
+  font-size: 15px;
+  height: 200px;  
+ }
