@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project was built by me at the end of module 2 on Flatiron School. It has frontend and backend using Ruby on Rails.
 
-Things you may want to cover:
+The idea behind this is to give the option to the user to save his piece of code in a place where he can easily grab the code he needed, copy and paste, and then edit the code. Doing this he will save time to do something else and not wasting time trying to remember how he can perform something or even Google it.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+I didn't focus on the layout, but on the functionalities that I was learning at that time. These functionalities are validations and the search function. 
